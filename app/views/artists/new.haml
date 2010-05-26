@@ -1,0 +1,16 @@
+/ - content_for :javascripts do
+/   = include_javascripts :sammy
+
+#header
+  %h1 
+    Add a new artist
+    
+- form_for(@artist) do |f|
+  = f.hidden_field :screen_name
+  = f.hidden_field :oauth_token
+  = f.hidden_field :oauth_secret
+  = f.label :name
+  = f.text_field :name
+  = f.submit 'create artist'
+  
+

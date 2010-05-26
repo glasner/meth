@@ -1,0 +1,20 @@
+local: &local
+  adapter: mysql
+  username: root
+  password: 
+  host: localhost
+
+development:
+  <<: *local
+  database: meth_dev
+
+test:
+  <<: *local
+  database: meth_test
+
+production:
+  adapter: mysql
+  username: deploy
+  password: poman219
+  host: localhost
+  database: meth

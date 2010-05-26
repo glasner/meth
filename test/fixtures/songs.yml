@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  artist_id: 1
+  external_id: MyString
+  name: MyString
+  finished_at: 2010-05-24 20:59:44
+
+two:
+  artist_id: 1
+  external_id: MyString
+  name: MyString
+  finished_at: 2010-05-24 20:59:44

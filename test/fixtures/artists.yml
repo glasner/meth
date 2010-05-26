@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  external_id: MyString
+  name: MyString
+  screen_name: MyString
+  oauth_token: MyString
+  oauth_secret: MyString
+
+two:
+  external_id: MyString
+  name: MyString
+  screen_name: MyString
+  oauth_token: MyString
+  oauth_secret: MyString
