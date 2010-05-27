@@ -86,7 +86,15 @@ class Artist < ActiveRecord::Base
     self.class.twitter(credentials)
   end
   
-  #= Posting
+  #= Bios
+  
+  def update_description
+    twitter.update_profile(:location => description)
+  end
+  
+  def description
+    "Classic #{name} ryhmes. One line at a time. Retweet to vote!"
+  end
   
   
   
