@@ -3,7 +3,7 @@ class Artist < ActiveRecord::Base
   has_many :songs, :dependent => :destroy
   has_many :albums, :dependent => :destroy
   
-  after_create :update_description
+  # after_create :update_description
   after_create :fetch_albums_and_songs
   after_create :post_random_snippet
   
