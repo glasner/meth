@@ -88,8 +88,12 @@ class Artist < ActiveRecord::Base
   
   #= Bios
   
+  def self.update_descriptions
+    all.each { |artist| artist.update_description  }
+  end
+  
   def update_description
-    twitter.update_profile(:location => description)
+    twitter.update_profile(:description => description)
   end
   
   def description

@@ -17,7 +17,7 @@ class Song::Snippet < ActiveRecord::Base
   # rerun existing snippets back through create? filter
   def self.filter!
     all.each do |snippet|
-      snippet.destroy unless Song::Snippet.create?(snippet.body)
+      snippet.destroy unless snippet.posted_at.nil? and Song::Snippet.create?(snippet.body)
     end
   end
   
