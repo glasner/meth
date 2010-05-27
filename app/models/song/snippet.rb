@@ -7,6 +7,8 @@ class Song::Snippet < ActiveRecord::Base
   def self.create?(line)
     line.strip!
     line.match(/\(.+\)/).nil? and
+    line.match(/\[.+\]/).nil? and
+    line.match(/Chorus/).nil? and
     !line.empty? and
     (line.split(' ').size > 4)
   end
