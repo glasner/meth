@@ -3,7 +3,9 @@ class Artist < ActiveRecord::Base
   has_many :songs, :dependent => :destroy
   has_many :albums, :dependent => :destroy
   
+  after_create :update_description
   after_create :fetch_albums_and_songs
+  after_create :post_random_snippet
   
   def fetch_albums_and_songs
     require 'faraday'
@@ -79,25 +81,31 @@ class Artist < ActiveRecord::Base
   end
   
   def twitter
-    credentials = {
+    self.class.twitter(twitter_credentials)
+  end
+  
+  def twitter_credentials
+    {
       :token => oauth_token,
       :secret => oauth_secret
     }
-    self.class.twitter(credentials)
   end
   
-  #= Bios
+  #= Descriptions
   
+  # update all descriptions
   def self.update_descriptions
     all.each { |artist| artist.update_description  }
   end
   
+  # update individual description
   def update_description
     twitter.update_profile(:description => description)
   end
   
+  # description template
   def description
-    "Classic #{name} ryhmes. One line at a time. Retweet to vote!"
+    "Classic #{name} ryhmes. One line at a time. Retweet to vote for your favorites!"
   end
   
   
