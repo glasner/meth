@@ -7,6 +7,7 @@ class Song::Snippet < ActiveRecord::Base
   # returns true if snippet should be created for given line
   def self.create?(line)
     line.strip!
+    line.match(/\?/).nil? and
     line.match(/\(.+\)/).nil? and
     line.match(/\[.+\]/).nil? and
     line.match(/Chorus/).nil? and
